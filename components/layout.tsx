@@ -1,6 +1,8 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
+import { GetServerSideProps } from "next"
+import React, { ReactNode } from "react"
+import { Container, Nav, Navbar } from "react-bootstrap"
 
-export const Layout: React.FC = (props: { cookie: string}, {children}) => {
+export const Layout = (props: { cookie: string, children: ReactNode}): JSX.Element => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -21,11 +23,11 @@ export const Layout: React.FC = (props: { cookie: string}, {children}) => {
       </Navbar>
 
       <article>
-        {children}
+        {props.cookie}
+        {props.children}
       </article>
     </div>
   )
 }
-
 
 
