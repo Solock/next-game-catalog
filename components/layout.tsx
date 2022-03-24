@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next"
+import Link from "next/link"
 import React, { ReactNode } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 
@@ -9,21 +9,20 @@ export const Layout = (props: { cookie: string, children: ReactNode}): JSX.Eleme
         <Container>
         <Navbar.Brand href="/">Games-Catolog</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/genre">Genre</Nav.Link>
-          <Nav.Link href="/platform">Platform</Nav.Link>
+          <Link href="/"><a className="navbar-brand">Home</a></Link>
+          <Link href="/genre"><a className="navbar-brand">Genre</a></Link>
+          <Link href="/platform"><a className="navbar-brand">Platform</a></Link>
             {props.cookie ? (
-              <Nav.Link href="/api/auth/logout">Logout</Nav.Link>
+              <Link href="/api/auth/logout"><a className="navbar-brand">Logout</a></Link>
             ) : (
-            <Nav.Link href="/api/auth/login">Login/SignUp</Nav.Link>
+            <Link href="/api/auth/login"><a className="navbar-brand">Login/SignUp</a></Link>
             )}
-          <Nav.Link href="/api/auth/me">Profil</Nav.Link>
+          <Link href="/api/auth/me"><a className="navbar-brand">Profil</a></Link>
         </Nav>
         </Container>
       </Navbar>
 
       <article>
-        {props.cookie}
         {props.children}
       </article>
     </div>

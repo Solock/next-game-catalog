@@ -1,20 +1,17 @@
 import React from 'react';
 import Image from 'next/image'
 import { useUser } from '@auth0/nextjs-auth0';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+import { Layout } from '../components/layout';
+import { propTypes } from 'react-bootstrap/esm/Image';
 
-export default function Profile() {
-  const { user, error, isLoading } = useUser();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
+export default withPageAuthRequired(({ user, cookie }: any) => (
+    <Layout cookie={cookie}>
+      <h1>Profile</h1>
+      <h4>Profile</h4>
+      <pre data-testid="profile">{JSON.stringify(user, null, 2)}</pre>
+    </Layout>
+  ));
 
-  return (
-    user && (
-      <div>
-        <Image src={user?.picture} alt={user?.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-      </div>
-    )
-  );
-}
+export const getServerSideProps = withPageAuthRequired();
