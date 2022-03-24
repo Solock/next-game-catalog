@@ -33,22 +33,25 @@ export default function Platforms({ platforms, cookie }: any) {
         <div className="row">
           {platforms.map((element: any, index: number) => {
             return (
-              <Link key={index} href={`/platforms/${element.name}`}>
+              <Link passHref={true} key={index} href={`/platforms/${element.name}`}>
                 <div className="col-sm-8" style={{ width: "18rem" }}>
                   <div className="card">
-                    {/* {element?.platform_logo_url ? (
-                    //   <Image
-                    //     src={element.platform_logo_url}
-                    //     layout="responsive"
-                    //     className="card-img-top"
-                    //   />
-                    // ) : (
-                    //   <Image
-                    //     src="..."
-                    //     height= "18rem"
-                    //     width= "18rem"
-                    //     className="card-img-top"
-                    //   />
+                    {/* {element.platform_logo_url ? (
+                      <Image
+                        alt=""
+                        src={element.platform_logo_url}
+                        height= "18rem"
+                        width= "18rem"
+                        className="card-img-top"
+                      />
+                    ) : (
+                      <Image
+                        alt=""
+                        src="..."
+                        height= "18rem"
+                        width= "18rem"
+                        className="card-img-top"
+                      />
                     )} */}
                     <div className="card-body">
                       <h5 className="card-title">{element.name}</h5>

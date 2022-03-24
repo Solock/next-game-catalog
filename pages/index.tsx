@@ -1,5 +1,3 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
 import { Layout } from '../components/layout'
 import { GetServerSideProps } from "next";
 // import { getDatabase } from "../src/utils/database"
