@@ -1,26 +1,65 @@
 import { GetServerSideProps } from "next";
+import  Link from "next/link";
+import Image from "next/image";
 import { Layout } from "../components/layout";
+import { getDatabase } from "../src/utils/database";
 
+export const getServerSideProps: GetServerSideProps = async () => {
+  const mongodb = await getDatabase();
+  const data = await mongodb.collection("games").find().toArray();
+  const platforms = data.map((element) => {
+    return element.platform;
+  });
+  const filteredArray = platforms.filter(function (element, index, before) {
+    if (index !== 0) {
+      if (element.name !== before[index - 1].name) {
+        return element;
+      }
+    }
+  });
 
-function Platform(props: { cookie: string }) {
+  const [unique] = [filteredArray.splice(0, 9)];
+  return {
+    props: {
+      platforms: unique,
+    },
+  };
+};
+
+export default function Platforms({ platforms, cookie }: any) {
   return (
-    <Layout cookie={props.cookie}>
-      <div>
-        <h1>Coucou Platform !</h1>
+    <Layout cookie={cookie}>
+      <div className="container">
+        <div className="row">
+          {platforms.map((element: any, index: number) => {
+            return (
+              <Link key={index} href={`/platforms/${element.name}`}>
+                <div className="col-sm-8" style={{ width: "18rem" }}>
+                  <div className="card">
+                    {/* {element?.platform_logo_url ? (
+                    //   <Image
+                    //     src={element.platform_logo_url}
+                    //     layout="responsive"
+                    //     className="card-img-top"
+                    //   />
+                    // ) : (
+                    //   <Image
+                    //     src="..."
+                    //     height= "18rem"
+                    //     width= "18rem"
+                    //     className="card-img-top"
+                    //   />
+                    )} */}
+                    <div className="card-body">
+                      <h5 className="card-title">{element.name}</h5>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </Layout>
-  )
+  );
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  if (context.req.cookies.appSession === undefined) {
-    return {
-      props: {},
-    }
-  }
-  return {
-    props : { cookie: context.req.cookies.appSession },
-  }
-}
-
-export default Platform

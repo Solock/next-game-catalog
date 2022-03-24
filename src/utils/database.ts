@@ -1,16 +1,14 @@
 import { MongoClient } from "mongodb";
+import { Db } from "mongodb";
+const MONGO_URL = process.env.MONGO_URL || "";
+let cachedDb: Db;
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-let cachedDb: MongoClient = null;
-
-export function getDatabase(): Promise<MongoClient> {
+export function getDatabase(): Promise<Db> {
   if (cachedDb) {
     return Promise.resolve(cachedDb);
   }
-
-  return MongoClient.connect(MONGODB_URI).then((db) => {
-    cachedDb = db;
+  return MongoClient.connect(MONGO_URL).then((client) => {
+    cachedDb = client.db();
     return cachedDb;
   });
 }
