@@ -2,7 +2,9 @@ import Link from "next/link"
 import React, { ReactNode } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 
-export const Layout = (props: { cookie: string, children: ReactNode}): JSX.Element => {
+export const Layout = (props: { cookie: any, children: ReactNode}): JSX.Element => {
+  console.log(props?.children)
+
   return (
     <div>
       <Navbar bg="dark" variant="dark">
