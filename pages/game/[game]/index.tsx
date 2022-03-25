@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import GameInfo from "../../../components/GameInfo";
+import { Layout } from "../../../components/layout";
 import { getDatabase } from "../../../src/utils/database";
 
 
@@ -16,6 +17,12 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   };
 }
 
-export default function Game({game}: any) {
-  return <GameInfo game={game} />
+export default function Game({game, cookie}: any) {
+  return (
+    <Layout cookie={cookie}>
+      <GameInfo game={game} />
+    </Layout>
+
+  )
+
 }

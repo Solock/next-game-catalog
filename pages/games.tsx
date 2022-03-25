@@ -13,6 +13,7 @@ type Game = {
   }
 }
 
+
 export const getServerSideProps: GetServerSideProps = async () =>{
   const mongodb = await getDatabase();
 

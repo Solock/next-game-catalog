@@ -12,6 +12,7 @@ export const Layout = (props: { cookie: string, children: ReactNode}): JSX.Eleme
           <Link href="/"><a className="navbar-brand">Home</a></Link>
           <Link href="/games"><a className="navbar-brand">Games</a></Link>
           <Link href="/genre"><a className="navbar-brand">Genre</a></Link>
+          <Link href="/cart"><a className="navbar-brand">Cart</a></Link>
           <Link href="/platform"><a className="navbar-brand">Platform</a></Link>
             {props.cookie ? (
               <Link href="/api/auth/logout"><a className="navbar-brand">Logout</a></Link>

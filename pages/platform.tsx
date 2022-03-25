@@ -10,6 +10,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const platforms = data.map((element) => {
     return element.platform;
   });
+
   const filteredArray = platforms.filter(function (element, index, before) {
     if (index !== 0) {
       if (element.name !== before[index - 1].name) {
