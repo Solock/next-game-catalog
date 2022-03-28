@@ -46,7 +46,7 @@ export default function Platforms({ platforms, cookie }: any) {
                       // />
                       <Image
                         alt=""
-                        src={element.platform_logo_url}
+                        src={`http:${element.platform_logo_url}`}
                         height="18rem"
                         width="18rem"
                         className="card-img-top"
@@ -60,7 +60,7 @@ export default function Platforms({ platforms, cookie }: any) {
                       // />
                       <Image
                         alt=""
-                        src="..."
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
                         height="18rem"
                         width="18rem"
                         className="card-img-top"

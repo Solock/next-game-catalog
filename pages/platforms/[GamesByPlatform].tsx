@@ -42,7 +42,7 @@ export default function GameByPlatform({ data,cookie }: any) {
                     {element?.cover?.url ? (
                       <Image
                         alt="game"
-                        src={element.cover.url}
+                        src={`http:${element.cover.url}`}
                         height="18rem"
                         width="18rem"
                         className="card-img-top"
@@ -50,7 +50,7 @@ export default function GameByPlatform({ data,cookie }: any) {
                     ) : (
                       <Image
                       className="img"
-                      src={`/images/temporary.png`}
+                      src="..."
                       width="700"
                       height="525"
                       alt="temporary"

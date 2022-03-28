@@ -39,7 +39,7 @@ export default function Games({ data, cookie }: any) {
                       // />
                       <Image
                         alt=""
-                        src={element.cover.url}
+                        src={`http:${element.cover.url}`}
                         height="18rem"
                         width="18rem"
                         className="card-img-top"

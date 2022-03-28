@@ -41,7 +41,7 @@ export default function GameByPlatform({ data, cookie }: any) {
                   <h5 className="display-5 fw-bolder">{element.name}</h5>
                   <p className="lead">{element.summary}</p>
                   <div key={index} style={{ maxWidth: "22rem" }}>
-                    {element.cover.url ? (
+                    {element?.cover?.url ?(
                       // <
                       //   alt=""
                       //   src={element.cover.url}
@@ -50,7 +50,7 @@ export default function GameByPlatform({ data, cookie }: any) {
                       // />
                       <Image
                         alt=""
-                        src={element.cover.url}
+                        src={`http:${element.cover.url}`}
                         height="18rem"
                         width="18rem"
                         className="card-img-top"
