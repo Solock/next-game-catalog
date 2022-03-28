@@ -42,7 +42,7 @@ export default function GameByPlatform({ data, cookie }: any) {
                   <h5 className="display-5 fw-bolder">{element.name}</h5>
                   <p className="lead">{element.summary}</p>
                   <div key={index} style={{ maxWidth: "22rem" }}>
-                    {element.cover.url ? (
+                    {element.cover?.url ? (
                       // <img
                       //   alt=""
                       //   src={element.cover.url}
@@ -52,8 +52,8 @@ export default function GameByPlatform({ data, cookie }: any) {
                       <Image
                         alt=""
                         src={`http:${element.cover.url}`}
-                        height="18rem"
-                        width="18rem"
+                        height={500}
+                        width="500%"
                         className="card-img-top"
                       />
                     ) : (
@@ -66,8 +66,8 @@ export default function GameByPlatform({ data, cookie }: any) {
                       <Image
                         alt=""
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
-                        height="18rem"
-                        width="18rem"
+                        height={500}
+                        width="500%"
                         className="card-img-top"
                       />
                     )}

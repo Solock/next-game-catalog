@@ -39,20 +39,20 @@ export default function GameByPlatform({ data,cookie }: any) {
                   style={{ maxWidth: "18rem" }}
                 >
                   <div className="card">
-                    {element?.cover?.url ? (
+                    {element.cover?.url ? (
                       <Image
                         alt="game"
                         src={`http:${element.cover.url}`}
-                        height="18rem"
-                        width="18rem"
+                        height={250}
+                        width="50%"
                         className="card-img-top"
                       />
                     ) : (
                       <Image
                       className="img"
                       src="..."
-                      width="700"
-                      height="525"
+                      height={250}
+                        width="50%"
                       alt="temporary"
                     />
                     )}

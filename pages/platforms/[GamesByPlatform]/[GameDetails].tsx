@@ -50,9 +50,9 @@ export default function GameByPlatform({ data, cookie }: any) {
                       // />
                       <Image
                         alt=""
-                        src={`http:${element.cover.url}`}
-                        height="18rem"
-                        width="18rem"
+                        src={`https://${element.cover.url}`}
+                        height={500}
+                        width="500%"
                         className="card-img-top"
                       />
                     ) : (
@@ -65,8 +65,8 @@ export default function GameByPlatform({ data, cookie }: any) {
                       <Image
                         alt=""
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
-                        height="18rem"
-                        width="18rem"
+                        height={500}
+                        width="500%"
                         className="card-img-top"
                       />
                     )}
