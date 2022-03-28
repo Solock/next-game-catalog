@@ -23,13 +23,20 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function Genres({ genres, cookie }: any) {
   return (
     <Layout cookie={cookie}>
-      <div className="card-body">
-        <h5 className="card-title">
-          {genres.map((element: any) => {
-            return element;
-          })}
-        </h5>
-      </div>
+      <section className="py-5">
+        <div className="econtainer px-4 px-lg-5 my-5">
+          <div className="row gx-4 gx-lg-5 align-items-center">
+            {" "}
+            {genres.map((element: any, index: any) => {
+              return (
+                <div key={index} className="alignement">
+                  <h5 className="display-5 fw-bolder">{element}</h5>
+                </div>
+              );
+            })}{" "}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }

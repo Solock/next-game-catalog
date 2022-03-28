@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next";
-import  Link from "next/link";
-import Image from "next/image";
-import { Layout } from "../components/layout";
+import Link from "next/link";
+import { Layout} from "../components/layout";
 import { getDatabase } from "../src/utils/database";
+import Image from "next/image";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const mongodb = await getDatabase();
@@ -37,23 +37,35 @@ export default function Platforms({ platforms, cookie }: any) {
               <Link passHref={true} key={index} href={`/platforms/${element.name}`}>
                 <div className="col-sm-8" style={{ width: "18rem" }}>
                   <div className="card">
-                    {/* {element.platform_logo_url ? (
+                    {element?.platform_logo_url ? (
+                      // <img
+                      //   alt=""
+                      //   src={element.platform_logo_url}
+                      //   style={{ height: "18rem" }}
+                      //   className="card-img-top"
+                      // />
                       <Image
                         alt=""
                         src={element.platform_logo_url}
-                        height= "18rem"
-                        width= "18rem"
+                        height="18rem"
+                        width="18rem"
                         className="card-img-top"
                       />
                     ) : (
+                      // <img
+                      //   alt=""
+                      //   src="..."
+                      //   style={{ height: "18rem" }}
+                      //   className="card-img-top"
+                      // />
                       <Image
                         alt=""
                         src="..."
-                        height= "18rem"
-                        width= "18rem"
+                        height="18rem"
+                        width="18rem"
                         className="card-img-top"
                       />
-                    )} */}
+                    )}
                     <div className="card-body">
                       <h5 className="card-title">{element.name}</h5>
                     </div>
